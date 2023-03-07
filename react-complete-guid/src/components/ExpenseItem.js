@@ -1,14 +1,10 @@
+import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css"; //install css file
 
 function ExpenseItem(props) {
-  //React will ensure get one parameter
-  // const expenseDate = new Date(2021, 2, 28);
-  // const expenseTitle = "Car Insurance";
-  // const expenceAmount = 294.67;
-
   return (
     <div className="expense-item">
-      <div>{props.data.toISOString()}</div>
+      <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
@@ -18,3 +14,6 @@ function ExpenseItem(props) {
 }
 
 export default ExpenseItem;
+
+//if there is no content between the opening and closing tag
+// <ExpenseData></ExpenseData> → <ExpenseData />
