@@ -1,8 +1,9 @@
 import "./Card.css";
-function Card(props) {
+
+const Card = (props) => {
   const classes = "card " + props.className; // <div class = "card expenseItemのクラス名"
   return <div className={classes}>{props.children}</div>;
-}
+};
 
 export default Card;
 
