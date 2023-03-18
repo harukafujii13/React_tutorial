@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import "./Expenses.css";
 import ExpenseFilter from "./ExpenseFilter";
+import ExpensesList from "./ExpensesList";
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2020");
@@ -21,14 +21,7 @@ const Expenses = (props) => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {filterExpenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id} //AddExpenseしたときにexpense-itemがexpense-filterの一番上にアップデートされる
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
+        <ExpensesList items={filterExpenses} />
       </Card>
     </div>
   );
