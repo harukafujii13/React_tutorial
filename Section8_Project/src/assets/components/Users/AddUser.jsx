@@ -14,7 +14,7 @@ const AddUser = props => {
     event.preventDefault();
     if(enteredUsername.trim().length === 0 || enteredAge.trim().length === 0){
       setError({
-        title: "Invalid age",
+        title: "Invalid input",
         message: "Please enter a valid name and age (non-empty valies)"
       })
       return; //finish the function execution
@@ -40,13 +40,13 @@ const ageChangeHandler = (event) => {
   setEnteredAge(event.target.value);
 }
 
-const errorhandler = () => {
+const errorHandler = () => {
   setError(null) //null is faulsy value
 }
 
 return (
 <div>
-{error && <ErrorModal title={error.title} message={error.message} onConfirm={errorhandler}/>}
+{error && (<ErrorModal title={error.title} message={error.message} onConfirm={errorHandler}/>)}
 <Card className={classes.input}>
 <form onSubmit={addUserHandler}>
   <label htmlFor="username">Username</label>
